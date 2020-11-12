@@ -1,0 +1,30 @@
+.Project {
+  img.illustration {
+    width: 100%;
+    margin: 24px 0;
+  }
+
+  .textContainer {
+    padding: 0 90px;
+
+    h2.heading {
+      display: inline-block;
+      font-size: 32px;
+      font-weight: bold;
+      color: #222222;
+      margin-top: 0;
+      margin: 24px 0;
+    }
+
+    p.paragraph {
+      font-size: 18px;
+      line-height: 1.67;
+      color: #222222;
+      margin: 24px 0;
+
+      > strong {
+        font-weight: 600;
+      }
+    }
+  }
+}

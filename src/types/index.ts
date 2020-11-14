@@ -18,4 +18,4 @@ export interface Project extends ProjectFields {
 
 export type HomeProps = Record<'projects', Project[]>;
 
-export type ProjectProps = Pick<ProjectFields, 'color' | 'body'>;
+export type ProjectProps = ProjectFields;

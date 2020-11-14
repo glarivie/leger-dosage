@@ -13,11 +13,18 @@ export const getServerSideProps: GetServerSideProps<ProjectProps> = async ({ par
     'fields.slug': slug,
   });
 
-  const { fields } = items[0];
+  const { sys, fields } = items[0];
 
   return {
     props: {
+      id: sys.id,
+      updatedAt: sys.updatedAt as unknown as Date,
+      slug: fields.slug,
+      title: fields.title,
       color: fields.color,
+      category: fields.category,
+      miniature: fields.miniature,
+      excerpt: fields.excerpt,
       body: fields.body,
     },
   };

@@ -1,11 +1,13 @@
+@import '~styles/variables.scss';
+
 .Footer {
   width: 100%;
-  height: 90px;
-  background-color: #f6fbfe;
-  margin-top: 112px;
+  height: 5.625rem;
+  background-color: $pale-grey;
+  margin-top: 7rem;
 
   .innerContent {
-    width: 960px;
+    width: 60rem;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -13,9 +15,25 @@
     justify-content: space-between;
 
     span.copyright {
-      font-size: 14px;
+      font-size: 0.875rem;
       text-align: left;
-      color: #999999;
+      color: $brown-grey;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+
+      a.linkedin, a.mail {
+        margin-left: 0.75rem;
+        color: $brown-grey;
+        font-size: 1.375rem;
+
+        &:hover {
+          cursor: pointer;
+          color: $azure;
+        }
+      }
     }
   }
 }

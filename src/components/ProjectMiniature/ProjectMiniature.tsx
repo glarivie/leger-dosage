@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { IoIosArrowForward } from 'react-icons/io';
 
 import type { Project } from 'types';
 
@@ -15,7 +16,10 @@ const ProjectMiniature = ({ category, title, miniature, excerpt, slug }: Project
     <h2 className={styles.title}>{title}</h2>
     <p className={styles.excerpt}>{excerpt}</p>
     <Link href="/[slug]" as={`/${slug}`}>
-      <a className={styles.more}>Lire la suite</a>
+      <div className={styles.moreLink}>
+        <a className={styles.label}>Lire la suite</a>
+        <IoIosArrowForward className={styles.icon} />
+      </div>
     </Link>
   </div>
 );

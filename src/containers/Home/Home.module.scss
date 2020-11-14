@@ -1,14 +1,20 @@
+@import '~styles/variables.scss';
+
 .Home {
   h1.hello {
-    font-size: 27px;
+    font-size: 1.75rem;
     font-weight: normal;
     line-height: 1.69;
-    text-align: left;
-    color: #222222;
+    color: $dark;
     margin: 0;
   }
 
   .projects {
-    margin-top: 112px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 7rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.625rem 1.875rem;
   }
 }

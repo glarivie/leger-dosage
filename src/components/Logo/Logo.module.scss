@@ -1,17 +1,19 @@
+@import '~styles/variables.scss';
+
 .Logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 2.625rem;
+  height: 2.625rem;
   border-radius: 3px;
-  background-color: #edf7fd;
+  background-color: $ice-blue;
 
   span.brand {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     line-height: 0.71;
-    color: #25a4e8;
+    color: $azure;
   }
 
   &:hover {

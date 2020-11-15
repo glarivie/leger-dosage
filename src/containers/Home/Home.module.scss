@@ -1,10 +1,11 @@
 @import '~styles/variables.scss';
+@import '~styles/mixins.scss';
 
 .Home {
   h1.hello {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: normal;
-    line-height: 1.69;
+    line-height: normal;
     color: $dark;
     margin: 0;
   }
@@ -12,9 +13,20 @@
   .projects {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 7rem;
+    margin-top: 8rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3.625rem 1.875rem;
+  }
+
+  @include isMobile {
+    padding: 0 1.5rem;
+
+    .projects {
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: inherit;
+    }
   }
 }

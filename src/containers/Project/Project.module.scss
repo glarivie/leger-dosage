@@ -1,4 +1,5 @@
 @import '~styles/variables.scss';
+@import '~styles/mixins.scss';
 
 .Project {
   display: flex;
@@ -13,6 +14,9 @@
 
     > img {
       width: 100%;
+      min-height: 20rem;
+      background-color: #FBFBFB;
+      border-radius: 3px;
     }
 
     > span.description {
@@ -29,12 +33,11 @@
     margin: 1.5rem 5.625rem;
 
     > h2 {
-      // display: inline-flex;
       font-size: 2rem;
-      font-weight: bold;
+      font-weight: 600;
+      line-height: 1.25;
       color:$dark;
-      margin-top: 0;
-      margin-bottom: 0;
+      margin: 0;
     }
   }
 
@@ -46,6 +49,16 @@
 
     > strong {
       font-weight: 600;
+    }
+  }
+
+  @include isMobile {
+    .heading {
+      margin: 1.5rem;
+    }
+
+    > p {
+      margin: 1.5rem;
     }
   }
 }

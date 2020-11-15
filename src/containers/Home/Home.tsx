@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ProjectMiniature from 'components/ProjectMiniature';
+import CardMiniature from 'components/CardMiniature';
 import type { HomeProps } from 'types';
 
 import styles from './Home.module.scss';
@@ -12,7 +12,7 @@ const Home = ({ projects }: HomeProps) => (
     </h1>
 
     <div className={styles.projects}>
-      {projects.map(project => <ProjectMiniature key={project.id} {...project} />)}
+      {projects.map(project => <CardMiniature key={project.id} {...project} />)}
     </div>
   </div>
 );

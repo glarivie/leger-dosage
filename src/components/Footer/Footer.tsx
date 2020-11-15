@@ -13,7 +13,12 @@ const Footer = () => (
         <a className={styles.mail}>
           <IoMdMail />
         </a>
-        <a className={styles.linkedin}>
+        <a
+          className={styles.linkedin}
+          href="https://www.linkedin.com/in/debora-v/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <IoLogoLinkedin />
         </a>
       </div>

@@ -1,4 +1,5 @@
 @import '~styles/variables.scss';
+@import '~styles/mixins.scss';
 
 .Footer {
   width: 100%;
@@ -25,14 +26,27 @@
       align-items: center;
 
       a.linkedin, a.mail {
-        margin-left: 0.75rem;
         color: $brown-grey;
         font-size: 1.375rem;
+
+        &:not(:first-of-type) {
+          margin-left: 0.75rem;
+        }
 
         &:hover {
           cursor: pointer;
           color: $azure;
         }
+      }
+    }
+
+    @include isMobile {
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+
+      .contact {
+        margin-top: 0.5rem;
       }
     }
   }

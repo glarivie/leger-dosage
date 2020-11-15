@@ -1,89 +1,8 @@
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-display: swap;
-  font-weight: bold;
-  src: url("./fonts/Lato-Bold.woff2") format("woff2");
-}
+@import '~fontsource-raleway/400.css';
+@import '~fontsource-raleway/600.css';
+@import '~fontsource-raleway/700.css';
 
-@font-face {
-  font-family: "Lato";
-  font-style: italic;
-  font-display: swap;
-  font-weight: bold;
-  src: url("./fonts/Lato-BoldItalic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Lato";
-  font-style: italic;
-  font-display: swap;
-  font-weight: 400;
-  src: url("./fonts/Lato-Italic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src: url("./fonts/Lato-Regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 600;
-  src: url("./fonts/Lato-Semibold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Lato";
-  font-style: italic;
-  font-display: swap;
-  font-weight: 600;
-  src: url("./fonts/Lato-SemiboldItalic.woff2") format("woff2");
-}
-
-@function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
-}
-
-@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
-
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-      font-size: $min-font-size;
-
-      @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-      }
-
-      @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size;
-      }
-    }
-  }
-}
-
-$mobile_max_width: 640px;
-
-@mixin isMobile {
-  @media screen and (max-width: $mobile_max_width) {
-    @content;
-  }
-}
-
-@mixin isIE11 {
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    @content;
-  }
-}
+@import '~styles/mixins.scss';
 
 html {
   $min_width: 800px;
@@ -105,7 +24,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Lato", "Lucida Grande", Tahoma, Sans-Serif;
+  font-family: 'Raleway', Sans-Serif;
 }
 
 main {

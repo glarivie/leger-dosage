@@ -3,7 +3,7 @@ import type { Asset } from 'contentful';
 import { BLOCKS, Text } from '@contentful/rich-text-types';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { useDebouncedCallback } from 'use-debounce';
-import { useMeasure } from 'react-use';
+import { useMeasure, useMedia } from 'react-use';
 import Head from 'next/head';
 
 import type { ProjectProps } from 'types';
@@ -15,6 +15,7 @@ const Project = (props: ProjectProps) => {
 
   const [pageWidth, setPageWidth] = useState<number>(960);
   const [ref, { width }] = useMeasure<HTMLDivElement>();
+  const isRetina = useMedia('(min-resolution: 2dppx)');
 
   const { callback: debouncedSetPageWidth } = useDebouncedCallback((width: number) => {
     setPageWidth(width);
@@ -22,9 +23,9 @@ const Project = (props: ProjectProps) => {
 
   useEffect(() => {
     if (Math.floor(width) !== pageWidth) {
-      debouncedSetPageWidth(Math.floor(width));
+      debouncedSetPageWidth(Math.floor(width) * (isRetina ? 2 : 1));
     }
-  }, [width]);
+  }, [width, isRetina]);
 
   const options: Options = useMemo(() => ({
     renderNode: {

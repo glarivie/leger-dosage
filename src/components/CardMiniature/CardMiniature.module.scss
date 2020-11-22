@@ -1,9 +1,11 @@
 @import '~styles/variables.scss';
+@import '~styles/mixins.scss';
 
 .CardMiniature {
   text-decoration: none;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   flex-basis: 50%;
   border-radius: 3px;
   box-shadow: 0px 8px 24px rgba(159, 160, 162, 0.10);
@@ -48,6 +50,23 @@
       line-height: 1.57;
       color: $dark;
       margin: 0;
+    }
+  }
+
+  @include isMobile {
+    flex-basis: 100%;
+    margin-bottom: 3.5rem;
+
+    .illustration {
+      height: 16.5rem;
+    }
+
+    .content {
+      padding: 1.425rem;
+
+      h2.tite {
+        font-size: 1.25rem;
+      }
     }
   }
 }

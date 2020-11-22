@@ -1,0 +1,79 @@
+@import '~styles/variables.scss';
+@import '~styles/mixins.scss';
+
+.NotFound {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+
+  .left {
+    flex-basis: 50%;
+
+    h1.status {
+      font-size: 6rem;
+      font-weight: bold;
+      color: $azure;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+
+    h2.message {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-size: 1.688rem;
+      font-weight: bold;
+      color: $dark;
+    }
+
+    p.guidelines {
+      margin: 0;
+      font-size: 1.125rem;
+      line-height: 1.67;
+      color: $dark;
+
+      > a {
+        text-decoration: none;
+        font-weight: 600;
+        color: $azure;
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .right {
+    max-width: 23.5rem;
+
+    > img {
+      max-width: 100%;
+      transform: scaleX(-1);
+    }
+  }
+
+  @include isMobile {
+    flex-direction: column;
+    justify-content: inherit;
+    padding: 0 2rem;
+
+    .left {
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    .right {
+      max-width: 100%;
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > img {
+        max-width: 75%;
+      }
+    }
+  }
+}

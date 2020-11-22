@@ -7,10 +7,10 @@ const Footer = () => (
   <div className={styles.Footer}>
     <div className={styles.innerContent}>
       <span className={styles.copyright}>
-        &copy; 2020 Debora Lariviere
+        &copy; 2020 Débora Larivière
       </span>
       <div className={styles.contact}>
-        <a className={styles.mail}>
+        <a className={styles.mail} href="mailto:contact@leger-dosage.fr">
           <IoMdMail />
         </a>
         <a

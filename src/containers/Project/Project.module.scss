@@ -23,7 +23,7 @@
       font-size: 0.875rem;
       color: $brown-grey;
       text-align: center;
-      margin-top: 0.5rem;
+      margin-top: 0.75rem;
       font-style: italic;
     }
   }
@@ -53,12 +53,31 @@
   }
 
   @include isMobile {
+    .media {
+      margin: 1rem 0;
+
+      > img {
+        width: 100%;
+        min-height: auto;
+        border-radius: 0;
+      }
+
+      > span.description {
+        font-size: 0.75rem;
+      }
+    }
+
     .heading {
-      margin: 1.5rem;
+      margin: 1rem 2rem;
+
+      > h2 {
+        font-size: 1.625rem;
+      }
     }
 
     > p {
-      margin: 1.5rem;
+      margin: 1rem 2rem;
+      font-size: 1rem;
     }
   }
 }

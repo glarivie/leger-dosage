@@ -5,6 +5,7 @@
   margin-bottom: 5rem;
 
   @include isMobile {
-    padding: 0.675rem 1.5rem;
+    padding: 0.675rem 2rem;
+    margin-bottom: 3.5rem;
   }
 }

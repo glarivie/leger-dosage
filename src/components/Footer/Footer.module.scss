@@ -39,8 +39,13 @@
         }
       }
     }
+  }
 
-    @include isMobile {
+  @include isMobile {
+    height: 7rem;
+    margin-top: 3.5rem;
+
+    .innerContent {
       width: 100%;
       flex-direction: column;
       justify-content: center;

@@ -6,7 +6,7 @@ import styles from './Header.module.scss';
 
 const Header = () => (
   <div className={styles.Header}>
-    <Logo />
+    <Logo className={styles.logo} size="2.625rem" />
   </div>
 );
 

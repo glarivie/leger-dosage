@@ -8,7 +8,7 @@ import styles from './Home.module.scss';
 const Home = ({ projects }: HomeProps) => (
   <div className={styles.Home}>
     <h1 className={styles.hello}>
-      Bonjour ! Je suis Debora Larivière - Junior UI/UX Designer.
+      Bonjour ! Je suis Débora Larivière, UX/UI Designer.
     </h1>
 
     <div className={styles.projects}>

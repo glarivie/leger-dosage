@@ -5,12 +5,13 @@ import type { HomeProps } from 'types';
 
 import styles from './Home.module.scss';
 
-const Home = ({ projects }: HomeProps) => (
-  <div className={styles.Home}>
-    <h1 className={styles.hello}>
-      Bonjour ! Je suis Débora Larivière, UX/UI Designer.
-    </h1>
+interface Props extends HomeProps {
+  readonly metaTitle: string;
+}
 
+const Home = ({ metaTitle, projects }: Props) => (
+  <div className={styles.Home}>
+    <h1 className={styles.hello}>{metaTitle}</h1>
     <div className={styles.projects}>
       {projects.map(project => <CardMiniature key={project.id} {...project} />)}
     </div>

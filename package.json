@@ -11,7 +11,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "classnames": "^2.2.6",
-    "contentful": "^7.15.0",
+    "contentful": "^8.0.3",
     "fontsource-raleway": "^3.0.9",
     "next": "10.0.3",
     "react": "^17.0.1",
@@ -28,8 +28,8 @@
     "@types/node": "^14.14.10",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.8.2",
-    "@typescript-eslint/parser": "^4.8.2",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
     "eslint": "^7.14.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-react": "^7.21.5"

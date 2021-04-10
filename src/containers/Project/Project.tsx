@@ -5,6 +5,7 @@ import { documentToReactComponents, Options } from '@contentful/rich-text-react-
 import { useDebouncedCallback } from 'use-debounce';
 import { useMeasure, useMedia } from 'react-use';
 import Head from 'next/head';
+import Image from 'next/image';
 
 import type { ProjectProps } from 'types';
 
@@ -17,7 +18,7 @@ const Project = (props: ProjectProps) => {
   const [ref, { width }] = useMeasure<HTMLDivElement>();
   const isRetina = useMedia('(min-resolution: 2dppx)');
 
-  const { callback: debouncedSetPageWidth } = useDebouncedCallback((width: number) => {
+  const debouncedSetPageWidth = useDebouncedCallback((width: number) => {
     setPageWidth(width);
   }, 1000);
 
@@ -35,7 +36,14 @@ const Project = (props: ProjectProps) => {
 
         return (
           <div className={styles.media}>
-            {file?.url && <img src={`${file.url}?w=${pageWidth}`} alt={title} />}
+            <Image
+              src={`https:${file.url}?w=${pageWidth}`}
+              alt={title}
+              width={file.details.image?.width ?? '100%'}
+              height={file.details.image?.height ?? 'auto'}
+              quality={95}
+              priority
+            />
             {description && <span className={styles.description}>{description}</span>}
           </div>
         )

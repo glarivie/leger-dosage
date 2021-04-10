@@ -1,8 +1,8 @@
-@import '~fontsource-raleway/400.css';
-@import '~fontsource-raleway/600.css';
-@import '~fontsource-raleway/700.css';
+@import '@fontsource/raleway/400.css';
+@import '@fontsource/raleway/600.css';
+@import '@fontsource/raleway/700.css';
 
-@import '~styles/mixins.scss';
+@import 'styles/mixins.scss';
 
 html {
   $min_width: 800px;

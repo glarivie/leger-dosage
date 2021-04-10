@@ -16,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <title>{metaTitle}</title>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <meta property="og:title" content={metaTitle} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/1606138102875.jpeg" />

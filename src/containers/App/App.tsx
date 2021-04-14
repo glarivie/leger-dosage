@@ -19,7 +19,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <meta property="og:title" content={metaTitle} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/1606138102875.jpeg" />
+        <meta property="og:image" content="/site_miniature.png" />
         <meta property="og:url" content="https://leger-dosage.fr" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="Léger Dosage" />

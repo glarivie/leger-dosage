@@ -1,5 +1,5 @@
-import type { Asset } from 'contentful';
-import type { Document as ContentfulDocument } from '@contentful/rich-text-types';
+import type { Asset } from "contentful";
+import type { Document as ContentfulDocument } from "@contentful/rich-text-types";
 
 export interface ProjectFields {
   readonly slug: string;
@@ -16,6 +16,6 @@ export interface Project extends ProjectFields {
   readonly updatedAt: Date;
 }
 
-export type HomeProps = Record<'projects', Project[]>;
+export type HomeProps = Record<"projects", Project[]>;
 
 export type ProjectProps = ProjectFields;

@@ -1,9 +1,10 @@
-@import '@fontsource/montserrat/400.css';
-@import '@fontsource/lora/400.css';
-@import '@fontsource/montserrat/500.css';
-@import '@fontsource/montserrat/700.css';
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/lora/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
 
-@import 'styles/mixins.scss';
+@import "styles/mixins.scss";
 
 html {
   $min_width: 800px;
@@ -25,11 +26,11 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Montserrat', Sans-Serif;
+  font-family: "Montserrat", Sans-Serif;
 }
 
 p {
-  font-family: 'Lora', Serif;
+  font-family: "Lora", Serif;
 }
 
 main {

@@ -1,9 +1,9 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
-import type { Project } from 'types';
+import type { Project } from "types";
 
-import styles from './CardMiniature.module.scss';
+import styles from "./CardMiniature.module.scss";
 
 const CardMiniature = ({ category, title, miniature, excerpt, slug }: Project) => (
   <Link href="/[slug]" as={`/${slug}`}>

@@ -1,5 +1,5 @@
-@import '~styles/variables.scss';
-@import '~styles/mixins.scss';
+@import "~styles/variables.scss";
+@import "~styles/mixins.scss";
 
 .Project {
   display: flex;
@@ -10,18 +10,16 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    margin: 1.5rem 0;
+    margin-bottom: 1.5rem;
 
-    > img {
+    .illustration {
       width: 100%;
-      min-height: 20rem;
-      background-color: #FBFBFB;
       border-radius: 3px;
     }
 
     > span.description {
       font-size: 0.875rem;
-      color: $brown-grey;
+      color: $grey;
       text-align: center;
       margin-top: 0.75rem;
       font-style: italic;
@@ -30,22 +28,26 @@
 
   .heading {
     display: inline-flex;
-    margin: 1.5rem 5.625rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
 
     > h2 {
+      white-space: pre-wrap;
       font-size: 2rem;
       font-weight: 600;
-      line-height: 1.25;
-      color:$dark;
+      line-height: 1.63;
+      color: $dark;
       margin: 0;
     }
   }
 
   > p {
+    white-space: pre-wrap;
     font-size: 1.125rem;
     line-height: 1.67;
-    color:$dark;
-    margin: 1.5rem 5.625rem;
+    color: $dark;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
 
     > strong {
       font-weight: 600;

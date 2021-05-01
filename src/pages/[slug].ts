@@ -1,13 +1,13 @@
-import type { GetStaticProps, GetStaticPaths } from 'next';
+import type { GetStaticProps, GetStaticPaths } from "next";
 
-import contentful from 'services/contentful';
-import type { ProjectFields, ProjectProps } from 'types';
+import contentful from "services/contentful";
+import type { ProjectFields, ProjectProps } from "types";
 
-type Params = Record<'slug', string>;
+type Params = Record<"slug", string>;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { items } = await contentful.getEntries<ProjectFields>({
-    content_type: 'projet',
+    content_type: "projet",
   });
 
   return {
@@ -22,8 +22,8 @@ export const getStaticProps: GetStaticProps<ProjectProps> = async ({ params }) =
   const { slug } = params as Params;
 
   const { items } = await contentful.getEntries<ProjectFields>({
-    content_type: 'projet',
-    'fields.slug': slug,
+    content_type: "projet",
+    "fields.slug": slug,
   });
 
   const { sys, fields } = items[0];
@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<ProjectProps> = async ({ params }) =
   return {
     props: {
       id: sys.id,
-      updatedAt: sys.updatedAt as unknown as Date,
+      updatedAt: (sys.updatedAt as unknown) as Date,
       slug: fields.slug,
       title: fields.title,
       color: fields.color,
@@ -44,4 +44,4 @@ export const getStaticProps: GetStaticProps<ProjectProps> = async ({ params }) =
   };
 };
 
-export { default } from 'containers/Project';
+export { default } from "containers/Project";

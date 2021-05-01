@@ -1,14 +1,15 @@
-import React from 'react';
-import Head from 'next/head';
-import type { AppProps } from 'next/app';
+import React from "react";
+import Head from "next/head";
+import type { AppProps } from "next/app";
 
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import Header from "components/Header";
+import Footer from "components/Footer";
+import colors from "constants/colors";
 
-import styles from './App.module.scss';
+import styles from "./App.module.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const metaTitle = 'Bonjour ! Je suis Débora Larivière, UX/UI Designer.';
+  const metaTitle = "Bonjour ! Je suis Débora Larivière, UX/UI Designer.";
 
   return (
     <div className={styles.App}>
@@ -23,7 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta property="og:url" content="https://leger-dosage.fr" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="Léger Dosage" />
-        <meta name="theme-color" content="#25a4e8" />
+        <meta name="theme-color" content={colors.dark} />
       </Head>
       <div className={styles.page}>
         <Header />

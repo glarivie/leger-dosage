@@ -1,15 +1,54 @@
-@import '~styles/mixins.scss';
+@import "~styles/variables.scss";
+@import "~styles/mixins.scss";
 
 .Header {
-  padding: 0.675rem 0;
-  margin-bottom: 5rem;
+  padding: 1.5rem 0;
+  margin-bottom: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  .logo:hover {
-    cursor: pointer;
+  .logo {
+    .logoBackground {
+      fill: $dark;
+    }
+
+    .logoContent {
+      fill: $alabaster;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .logoBackground {
+        fill: lighten($dark, 10%);
+      }
+    }
+  }
+
+  nav.menu {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, minmax(5rem, 1fr));
+
+    .item {
+      padding: 0.25rem 0;
+      font-size: 1rem;
+      text-align: center;
+      color: $grey;
+      text-decoration: none;
+      user-select: none;
+
+      &:hover {
+        cursor: pointer;
+        color: $dark;
+        font-weight: 500;
+      }
+    }
   }
 
   @include isMobile {
-    padding: 0.675rem 2rem;
-    margin-bottom: 3.5rem;
+    padding: 1.5rem 2rem;
+    margin-bottom: 4rem;
   }
 }

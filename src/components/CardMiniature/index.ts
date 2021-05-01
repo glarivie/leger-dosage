@@ -1,1 +1,1 @@
-export { default } from './CardMiniature';
+export { default } from "./CardMiniature";

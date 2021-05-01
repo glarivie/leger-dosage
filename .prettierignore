@@ -1,0 +1,10 @@
+node_modules
+build
+.vscode
+.github
+yarn.lock
+.prettierrc
+.huskyrc
+.eslintrc
+.next
+public

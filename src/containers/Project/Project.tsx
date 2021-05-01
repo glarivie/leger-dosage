@@ -3,7 +3,7 @@ import type { Asset } from 'contentful';
 import { BLOCKS, Text } from '@contentful/rich-text-types';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { useDebouncedCallback } from 'use-debounce';
-import { useMeasure, useMedia } from 'react-use';
+import { useMedia, useWindowSize } from 'react-use';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -15,7 +15,7 @@ const Project = (props: ProjectProps) => {
   const { body, color = '#25a4e8', title, excerpt, category, miniature } = props;
 
   const [pageWidth, setPageWidth] = useState<number>(960);
-  const [ref, { width }] = useMeasure<HTMLDivElement>();
+  const { width: windowWidth } = useWindowSize();
   const isRetina = useMedia('(min-resolution: 2dppx)');
 
   const debouncedSetPageWidth = useDebouncedCallback((width: number) => {
@@ -23,10 +23,13 @@ const Project = (props: ProjectProps) => {
   }, 1000);
 
   useEffect(() => {
-    if (Math.floor(width) !== pageWidth) {
-      debouncedSetPageWidth(Math.floor(width) * (isRetina ? 2 : 1));
+    if (Math.floor(windowWidth) !== pageWidth) {
+      const nextPageWidth = windowWidth > 960 ? 960 : windowWidth;
+      const ratio = 2;
+
+      debouncedSetPageWidth(nextPageWidth * ratio);
     }
-  }, [width, isRetina]);
+  }, [windowWidth, isRetina]);
 
   const options: Options = useMemo(() => ({
     renderNode: {
@@ -59,7 +62,7 @@ const Project = (props: ProjectProps) => {
   }), [pageWidth]);
 
   return (
-    <div className={styles.Project} ref={ref}>
+    <div className={styles.Project}>
       <Head>
         <title>{title}</title>
         <meta name="description" content={excerpt} />

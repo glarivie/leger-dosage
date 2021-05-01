@@ -1,11 +1,24 @@
-import type { GetServerSideProps } from 'next';
+import type { GetStaticProps, GetStaticPaths } from 'next';
 
 import contentful from 'services/contentful';
 import type { ProjectFields, ProjectProps } from 'types';
 
 type Params = Record<'slug', string>;
 
-export const getServerSideProps: GetServerSideProps<ProjectProps> = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { items } = await contentful.getEntries<ProjectFields>({
+    content_type: 'projet',
+  });
+
+  return {
+    paths: items.map(({ fields }) => ({
+      params: { slug: fields.slug },
+    })),
+    fallback: false, // 404
+  };
+};
+
+export const getStaticProps: GetStaticProps<ProjectProps> = async ({ params }) => {
   const { slug } = params as Params;
 
   const { items } = await contentful.getEntries<ProjectFields>({
@@ -27,6 +40,7 @@ export const getServerSideProps: GetServerSideProps<ProjectProps> = async ({ par
       excerpt: fields.excerpt,
       body: fields.body,
     },
+    revalidate: 5,
   };
 };
 

@@ -1,9 +1,9 @@
-import type { GetServerSideProps } from 'next';
+import type { GetStaticProps } from 'next';
 
 import contentful from 'services/contentful';
 import type { ProjectFields, HomeProps } from 'types';
 
-export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const { items } = await contentful.getEntries<ProjectFields>({
     content_type: 'projet',
   });
@@ -22,6 +22,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
         body: fields.body,
       })),
     },
+    revalidate: 5,
   };
 };
 

@@ -14,7 +14,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: items.map(({ fields }) => ({
       params: { slug: fields.slug },
     })),
-    fallback: false, // 404
+    fallback: true,
   };
 };
 

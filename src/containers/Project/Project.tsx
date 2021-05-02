@@ -1,34 +1,27 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import type { Asset } from "contentful";
 import { BLOCKS, Text } from "@contentful/rich-text-types";
 import { documentToReactComponents, Options } from "@contentful/rich-text-react-renderer";
-import { useDebouncedCallback } from "use-debounce";
 import { useMedia, useWindowSize } from "react-use";
 import Head from "next/head";
 import Image from "next/image";
 
 import type { ProjectProps } from "types";
+import colors from "constants/colors";
 
 import styles from "./Project.module.scss";
 
 const Project = (props: ProjectProps) => {
-  const { body, color = "#25a4e8", title, excerpt, category, miniature } = props;
+  const { body, color = colors.dark, title, excerpt, category, miniature } = props;
 
-  const [pageWidth, setPageWidth] = useState<number>(960);
   const { width: windowWidth } = useWindowSize();
   const isRetina = useMedia("(min-resolution: 2dppx)");
 
-  const debouncedSetPageWidth = useDebouncedCallback((width: number) => {
-    setPageWidth(width);
-  }, 1000);
+  const pageWidth = useMemo(() => {
+    const nextPageWidth = windowWidth > 960 ? 960 : Math.floor(windowWidth);
+    const ratio = isRetina ? 2 : 1;
 
-  useEffect(() => {
-    if (Math.floor(windowWidth) !== pageWidth) {
-      const nextPageWidth = windowWidth > 960 ? 960 : windowWidth;
-      const ratio = 2;
-
-      debouncedSetPageWidth(nextPageWidth * ratio);
-    }
+    return nextPageWidth * ratio;
   }, [windowWidth, isRetina]);
 
   const options: Options = useMemo(

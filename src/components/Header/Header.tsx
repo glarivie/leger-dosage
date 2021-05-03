@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+// import Link from "next/link";
 
 import Logo from "components/Logo";
 
@@ -13,12 +13,12 @@ const Header = () => (
       contentClassName={styles.logoContent}
       size="2.625rem"
     />
-    <nav className={styles.menu}>
+    {/* <nav className={styles.menu}>
       <Link href="/">
         <a className={styles.item}>Projets</a>
       </Link>
       <a className={styles.item}>À propos</a>
-    </nav>
+    </nav> */}
   </div>
 );
 

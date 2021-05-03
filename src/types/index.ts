@@ -19,3 +19,12 @@ export interface Project extends ProjectFields {
 export type HomeProps = Record<"projects", Project[]>;
 
 export type ProjectProps = ProjectFields;
+
+export interface AboutFields {
+  readonly illustration: Asset;
+  readonly body: ContentfulDocument;
+  readonly downloadLabel: string;
+  readonly resume: Asset;
+}
+
+export type AboutProps = AboutFields;

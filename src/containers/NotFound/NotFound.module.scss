@@ -11,31 +11,29 @@
     flex-basis: 50%;
 
     h1.status {
-      font-size: 6rem;
+      font-size: 6.187rem;
       font-weight: bold;
-      color: $azure;
+      color: $grey;
       margin-top: 0;
-      margin-bottom: 2rem;
+      margin-bottom: 2.062rem;
     }
 
     h2.message {
       margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-size: 1.688rem;
+      margin-bottom: 1.547rem;
+      font-size: 1.74rem;
       font-weight: bold;
       color: $dark;
     }
 
     p.guidelines {
       margin: 0;
-      font-size: 1.125rem;
+      font-size: 1.16rem;
       line-height: 1.67;
       color: $dark;
 
       > a {
-        text-decoration: none;
-        font-weight: 600;
-        color: $azure;
+        color: $dark;
 
         &:hover {
           cursor: pointer;

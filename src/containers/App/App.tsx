@@ -10,6 +10,8 @@ import styles from "./App.module.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const metaTitle = "Bonjour ! Je suis Débora Larivière, UX/UI Designer.";
+  const metaDescription =
+    "Je m’intéresse aux usages liées aux nouvelles technologies afin de concevoir des expériences innovantes, intuitives et engageantes pour les utilisateurs.";
 
   return (
     <div className={styles.App}>
@@ -25,7 +27,9 @@ const App = ({ Component, pageProps }: AppProps) => {
           href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <meta name="description" content={metaDescription} />
         <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/og_image.jpg" />
         <meta property="og:url" content="https://leger-dosage.fr" />

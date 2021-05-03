@@ -56,9 +56,9 @@
 
   @include isMobile {
     .media {
-      margin: 1rem 0;
+      margin-bottom: 1rem;
 
-      > img {
+      .illustration {
         width: 100%;
         min-height: auto;
         border-radius: 0;
@@ -73,13 +73,13 @@
       margin: 1rem 2rem;
 
       > h2 {
-        font-size: 1.625rem;
+        font-size: 1.375rem;
       }
     }
 
     > p {
       margin: 1rem 2rem;
-      font-size: 1rem;
+      font-size: 1.125rem;
     }
   }
 }

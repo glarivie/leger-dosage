@@ -48,7 +48,16 @@
   }
 
   @include isMobile {
-    padding: 1.5rem 2rem;
-    margin-bottom: 4rem;
+    padding: 0.938rem 2rem;
+    margin-bottom: 3rem;
+
+    nav.menu {
+      gap: 0.938rem;
+      grid-template-columns: repeat(2, minmax(4rem, 1fr));
+
+      .item {
+        font-size: 0.875rem;
+      }
+    }
   }
 }

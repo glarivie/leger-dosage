@@ -1,9 +1,10 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import type { Asset } from "contentful";
 import { BLOCKS, Text } from "@contentful/rich-text-types";
 import { documentToReactComponents, Options } from "@contentful/rich-text-react-renderer";
-import { useMedia, useWindowSize } from "react-use";
+import { useMedia, useWindowSize, useLockBodyScroll } from "react-use";
 import { useRouter } from "next/router";
+import { isUndefined } from "lodash";
 import Head from "next/head";
 
 import type { ProjectProps } from "types";
@@ -28,6 +29,11 @@ const Project = ({
 
   const { width: windowWidth } = useWindowSize();
   const isRetina = useMedia("(min-resolution: 2dppx)");
+  const [activeImageUrl, setActiveImageUrl] = useState<string>();
+
+  const activeImageWidth = useMemo(() => {
+    return isRetina ? windowWidth * 2 : windowWidth;
+  }, [isRetina, windowWidth]);
 
   const pageWidth = useMemo(() => {
     const nextPageWidth = windowWidth > 960 ? 960 : Math.floor(windowWidth);
@@ -48,6 +54,7 @@ const Project = ({
               <img
                 className={styles.illustration}
                 src={`https:${file.url}?w=${pageWidth}`}
+                onClick={() => setActiveImageUrl(file.url)}
                 alt={title}
               />
               {description && <span className={styles.description}>{description}</span>}
@@ -64,6 +71,8 @@ const Project = ({
     [pageWidth]
   );
 
+  useLockBodyScroll(!isUndefined(activeImageUrl));
+
   return (
     <div className={styles.Project}>
       <Head>
@@ -76,6 +85,15 @@ const Project = ({
         <meta name="theme-color" content={color} />
       </Head>
       {documentToReactComponents(body, options)}
+      {!isUndefined(activeImageUrl) && (
+        <div className={styles.imageModal} onClick={() => setActiveImageUrl(undefined)}>
+          <img
+            className={styles.activeImageUrl}
+            src={`https:${activeImageUrl}?w=${activeImageWidth}`}
+            alt=""
+          />
+        </div>
+      )}
     </div>
   );
 };

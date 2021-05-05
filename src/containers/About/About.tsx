@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { useMedia, useWindowSize } from "react-use";
-import Image from "next/image";
 
 import type { AboutProps } from "types";
 
@@ -21,13 +20,9 @@ const About = ({ illustration, body, downloadLabel, resume }: AboutProps) => {
   return (
     <div className={styles.About}>
       <div className={styles.illustration}>
-        <Image
+        <img
           src={`https:${illustration.fields.file.url}?w=${pageWidth}`}
           alt={illustration.fields.title}
-          width={illustration.fields.file.details.image?.width ?? "100%"}
-          height={illustration.fields.file.details.image?.height ?? "auto"}
-          quality={95}
-          priority
         />
       </div>
       {documentToReactComponents(body)}

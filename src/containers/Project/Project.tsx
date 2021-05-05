@@ -5,7 +5,6 @@ import { documentToReactComponents, Options } from "@contentful/rich-text-react-
 import { useMedia, useWindowSize } from "react-use";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Image from "next/image";
 
 import type { ProjectProps } from "types";
 import colors from "constants/colors";
@@ -46,14 +45,10 @@ const Project = ({
 
           return (
             <div className={styles.media}>
-              <Image
+              <img
                 className={styles.illustration}
                 src={`https:${file.url}?w=${pageWidth}`}
                 alt={title}
-                width={file.details.image?.width ?? "100%"}
-                height={file.details.image?.height ?? "auto"}
-                quality={95}
-                priority
               />
               {description && <span className={styles.description}>{description}</span>}
             </div>

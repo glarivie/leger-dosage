@@ -47,6 +47,9 @@ const Project = ({
 
           return (
             <div className={styles.media}>
+              <Head>
+                <link rel="preload" href={file.url} as="image" />
+              </Head>
               <img
                 className={styles.illustration}
                 src={`https:${file.url}?w=${pageWidth}`}

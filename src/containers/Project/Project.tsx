@@ -31,10 +31,6 @@ const Project = ({
   const isRetina = useMedia("(min-resolution: 2dppx)");
   const [activeImageUrl, setActiveImageUrl] = useState<string>();
 
-  const activeImageWidth = useMemo(() => {
-    return isRetina ? windowWidth * 2 : windowWidth;
-  }, [isRetina, windowWidth]);
-
   const pageWidth = useMemo(() => {
     const nextPageWidth = windowWidth > 960 ? 960 : Math.floor(windowWidth);
     const ratio = isRetina ? 2 : 1;
@@ -87,11 +83,7 @@ const Project = ({
       {documentToReactComponents(body, options)}
       {!isUndefined(activeImageUrl) && (
         <div className={styles.imageModal} onClick={() => setActiveImageUrl(undefined)}>
-          <img
-            className={styles.activeImageUrl}
-            src={`https:${activeImageUrl}?w=${activeImageWidth}`}
-            alt=""
-          />
+          <img className={styles.activeImageUrl} src={activeImageUrl} alt="" />
         </div>
       )}
     </div>

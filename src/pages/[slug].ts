@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<ProjectProps> = async ({ params }) =
   return {
     props: {
       id: sys.id,
-      updatedAt: (sys.updatedAt as unknown) as Date,
+      updatedAt: sys.updatedAt as unknown as Date,
       slug: fields.slug,
       title: fields.title,
       color: fields.color,

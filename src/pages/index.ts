@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     props: {
       projects: items.map(({ fields, sys }) => ({
         id: sys.id,
-        updatedAt: (sys.updatedAt as unknown) as Date,
+        updatedAt: sys.updatedAt as unknown as Date,
         slug: fields.slug,
         title: fields.title,
         color: fields.color,

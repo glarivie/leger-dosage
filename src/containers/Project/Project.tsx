@@ -27,15 +27,12 @@ const Project = ({
     return <LoadingProject />;
   }
 
-  const { width: windowWidth } = useWindowSize();
+  const { width: windowWidth } = useWindowSize(960);
   const isRetina = useMedia("(min-resolution: 2dppx)");
   const [activeImageUrl, setActiveImageUrl] = useState<string>();
 
   const pageWidth = useMemo(() => {
-    const nextPageWidth = windowWidth > 960 ? 960 : Math.floor(windowWidth);
-    const ratio = isRetina ? 2 : 1;
-
-    return nextPageWidth * ratio;
+    return windowWidth > 960 ? 960 : Math.floor(windowWidth);
   }, [windowWidth, isRetina]);
 
   const options: Options = useMemo(

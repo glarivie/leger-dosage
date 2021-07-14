@@ -21,7 +21,7 @@ const Logo = ({
   contentClassName,
   ...props
 }: Props) => (
-  <Link href="/">
+  <Link href="/" passHref>
     <svg
       className={className}
       width={size}

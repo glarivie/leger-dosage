@@ -1,18 +1,7 @@
 @import "styles/mixins.scss";
 
 html {
-  $min_width: 800px;
-  $max_width: 1920px;
-  $min_font: 13px;
-  $max_font: 18px;
-
-  // https://css-tricks.com/snippets/css/fluid-typography/
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
-
-  @include isMobile {
-    font-size: 16px;
-  }
-
+  font-size: 16px;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
   background-color: white;

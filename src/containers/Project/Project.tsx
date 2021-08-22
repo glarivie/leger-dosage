@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import type { Asset } from "contentful";
 import { BLOCKS, Text } from "@contentful/rich-text-types";
 import { documentToReactComponents, Options } from "@contentful/rich-text-react-renderer";
-import { useMedia, useWindowSize, useLockBodyScroll } from "react-use";
+import { useWindowSize, useLockBodyScroll } from "react-use";
 import { useRouter } from "next/router";
 import { isUndefined } from "lodash";
 import Head from "next/head";
@@ -23,21 +23,17 @@ const Project = ({
 }: ProjectProps) => {
   const router = useRouter();
 
-  if (router.isFallback) {
-    return <LoadingProject />;
-  }
-
   const { width: windowWidth } = useWindowSize(960);
-  const isRetina = useMedia("(min-resolution: 2dppx)");
   const [activeImageUrl, setActiveImageUrl] = useState<string>();
 
   const pageWidth = useMemo(() => {
     return windowWidth > 960 ? 960 : Math.floor(windowWidth);
-  }, [windowWidth, isRetina]);
+  }, [windowWidth]);
 
   const options: Options = useMemo(
     () => ({
       renderNode: {
+        // eslint-disable-next-line react/display-name
         [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
           const { fields } = data.target as Asset;
           const { title, description, file } = fields;
@@ -57,6 +53,7 @@ const Project = ({
             </div>
           );
         },
+        // eslint-disable-next-line react/display-name
         [BLOCKS.HEADING_2]: ({ content }) => (
           <div className={styles.heading}>
             <h2 style={{ borderBottom: `3px solid ${color}` }}>{(content[0] as Text).value}</h2>
@@ -64,10 +61,14 @@ const Project = ({
         ),
       },
     }),
-    [pageWidth]
+    [color, pageWidth]
   );
 
   useLockBodyScroll(!isUndefined(activeImageUrl));
+
+  if (router.isFallback) {
+    return <LoadingProject />;
+  }
 
   return (
     <div className={styles.Project}>

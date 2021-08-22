@@ -10,6 +10,8 @@ const CardMiniature = ({ category, title, miniature, excerpt, slug }: Project) =
   const isRetina = useMedia("(min-resolution: 2dppx)");
   const width = useMemo(() => (isRetina ? 960 : 480), [isRetina]);
 
+  console.log({ category, title, miniature, excerpt, slug });
+
   return (
     <Link href="/[slug]" as={`/${slug}`}>
       <a className={styles.CardMiniature}>
